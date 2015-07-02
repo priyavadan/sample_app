@@ -23,9 +23,11 @@ The controller will run a system command that performs the actions we want it to
  <% end %>
  
 <p>Tools:
-<%=check_box_tag("tools[]", "Perl", :multiple => "true", :size => 5) %> Perl
-<%= check_box_tag("tools[]", "Python", :multiple => "true") %> Python
-<%= check_box_tag("tools[]", "Ruby", :multiple => "true") %> Ruby </p>
+
+ <% [ 'Perl', 'Python', 'Ruby'].each do |tools| %>
+   <br><%= radio_button_tag 'tools', tools, @tools == tools %>
+ <%= tools.to_s%>
+ <% end %>
 
 <p>Platforms:
 <%= check_box_tag("platforms[]","Linux") %> Linux
