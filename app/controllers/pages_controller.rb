@@ -14,4 +14,15 @@ class PagesController < ApplicationController
   def help
    @title = "Help"	  
   end
+
+
+def show_data
+    @command = params[:command]
+    @rgen_version = params[:rgen_version]
+    @tools = params[:tools] || []
+    @platforms = params[:platforms] || []
+    @vaults = params[:vaults] || [] 
+end
+
+
 end  
