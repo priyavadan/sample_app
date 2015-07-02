@@ -1,9 +1,10 @@
 <h2> Form Data - enter</h2>
-The idea is, pass parameters from this form to the controller.
 <br></br>
-Controller will take the parameters and render a new view to display those parameters.
+<b>View:</b>pass parameters from this form(the view) to the controller.
 <br></br>
-Application: We could take the parameters from a page, pass it to a method inside
+<b>Controller:</b> will take the parameters and render a new view to display those parameters.
+<br></br>
+<b>The Idea is:</b> We could take the parameters from a page, pass it to a method inside
 the controller.
 <br></br>
 The controller will run a system command that performs the actions we want it to.
@@ -16,13 +17,16 @@ The controller will run a system command that performs the actions we want it to
 <%= text_field_tag("rgen_version","Enter Required RGen version", :size => 50)  %></p>
 
 <p>DesignSync Vaults:
-<%=check_box_tag("vaults[]", "sync://C55-1T-App-vault",  :size => 5) %> C55-1T
-<%=check_box_tag("vaults[]", "sync://C90-TFS-App-Vault", :size => 5) %> C90-TFS
-
+ <% [ 'sync://C55-1T-App-vault', 'sync://C90-TFS-App-Vault'].each do |vault| %>
+    <br><%= radio_button_tag 'vault', vault, @vault == vault %>
+ <%= vault.to_s%>
+ <% end %>
+ 
 <p>Tools:
 <%=check_box_tag("tools[]", "Perl", :multiple => "true", :size => 5) %> Perl
 <%= check_box_tag("tools[]", "Python", :multiple => "true") %> Python
 <%= check_box_tag("tools[]", "Ruby", :multiple => "true") %> Ruby </p>
+
 <p>Platforms:
 <%= check_box_tag("platforms[]","Linux") %> Linux
 <%= check_box_tag("platforms[]","Mac OSX") %> Mac OSX

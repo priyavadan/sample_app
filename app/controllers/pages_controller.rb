@@ -21,7 +21,7 @@ def show_data
     @rgen_version = params[:rgen_version]
     @tools = params[:tools] || []
     @platforms = params[:platforms] || []
-    @vaults = params[:vaults] || [] 
+    @vault = params[:vault] || [] 
 end
 
 
