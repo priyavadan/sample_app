@@ -9,6 +9,8 @@ the controller.
 <br></br>
 The controller will run a system command that performs the actions we want it to.
 <br></br>
+The User's password should be available within the Rails app that can be passed to open up the SSH session required.
+<br></br>
 <%= form_tag(:action => "show_data") do %>
 
 <p>Command:
@@ -22,18 +24,14 @@ The controller will run a system command that performs the actions we want it to
  <%= vault.to_s%>
  <% end %>
  
-<p>Tools:
-
- <% [ 'Perl', 'Python', 'Ruby'].each do |tools| %>
-   <br><%= radio_button_tag 'tools', tools, @tools == tools %>
- <%= tools.to_s%>
- <% end %>
+<p>Target:
+ <%= text_field_tag("target","Enter desired target", :size=> 50)  %></p>
 
 <p>Platforms:
 <%= check_box_tag("platforms[]","Linux") %> Linux
 <%= check_box_tag("platforms[]","Mac OSX") %> Mac OSX
 <%= check_box_tag("platforms[]","Windows") %> Windows</p>
-<%= submit_tag("Save Data") %>
+<%= submit_tag("Submit") %>
 <% end %>
 
 
